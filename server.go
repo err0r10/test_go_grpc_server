@@ -4,6 +4,7 @@ import (
 	"log"
 	"net"
 
+	"github.com/err0r10/test_go_grpc_server/hello"
 	"google.golang.org/grpc"
 )
 
@@ -17,15 +18,14 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s := test_go_grpc_server.Server{}
+	s := hello.Server{}
 
 	grpcServer := grpc.NewServer()
 
-	test_go_grpc_server.RegisterHelloServer(grpcServer, &s)
+	hello.RegisterHelloServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
 	}
 
-	grpc_server
 }
