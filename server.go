@@ -8,12 +8,8 @@ import (
 	"google.golang.org/grpc"
 )
 
-const (
-	port = ":5003"
-)
-
 func main() {
-	lis, err := net.Listen("tcp", port)
+	lis, err := net.Listen("tcp", ":5003")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

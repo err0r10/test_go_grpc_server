@@ -10,13 +10,9 @@ import (
 	"github.com/err0r10/test_go_grpc_server/hello"
 )
 
-const (
-	port = ":5003"
-)
-
 func main() {
 	var conn *grpc.ClientConn
-	conn, err := grpc.Dial(port, grpc.WithInsecure())
+	conn, err := grpc.Dial(":5003", grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %s", err)
 	}
